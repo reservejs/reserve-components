@@ -1,25 +1,25 @@
-// TODO: Make a pattern for excluding/including renderer. -MANI
-
 import React from 'react'
 import Rx from 'rxjs'
-import actionsFactory from './interactions/actions'
-import eventsFactory from './interactions/events'
-import rendererFactory from './renderer'
+import interactionsFactory from './interactions'
+import reactRendererFactory from './renderer'
 import stateFactory from './state'
 
-function create() {
-  const events = eventsFactory.create(Rx)
-  const actions = actionsFactory.create(events)
-  const renderer = rendererFactory.create(React, actions)
-  const state = stateFactory.create(Rx, events)
+function create({options: {rendererFactory}}) {
+  const interactions = interactionsFactory.create({dependencies: {Rx}})
+  const renderer = rendererFactory.create({
+    dependencies: {React, actions: interactions.actions}
+  })
+  const state = stateFactory.create({
+    dependencies: {Rx, events: interactions.events}
+  })
   return {
-    actions,
-    events,
+    interactions,
     renderer,
     state
   }
 }
 
 export default {
-  create
+  create,
+  reactRendererFactory
 }

@@ -1,10 +1,10 @@
-function create(Rx, events) {
+function create({dependencies: {Rx, events: {setValue$}}}) {
   const stateSubject = new Rx.Subject()
   const initialState = {
     value: ''
   }
 
-  events.setValue$.subscribe(function onSetValue$(data) {
+  setValue$.subscribe(function onSetValue$(data) {
     stateSubject.next(function onStateChange(state) {
       state.value = data
       return state

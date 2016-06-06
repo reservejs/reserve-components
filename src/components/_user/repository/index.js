@@ -1,5 +1,3 @@
-// TODO: Write tests -MANI
-
 function createLoginHandler(stateSubject) {
   return function handleLogin(loginData) {
     stateSubject.next(function handlenext(currentState) {
@@ -43,6 +41,6 @@ function create(Rx, events) {
   }
 }
 
-module.exports = {
+export default {
   create
 }

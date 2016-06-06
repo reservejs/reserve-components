@@ -1,4 +1,4 @@
-function create(React, actions, inputRenderer) {
+function create({dependencies: {React, actions, inputRenderer}}) {
   const Input = inputRenderer.render
 
   function onClick() {

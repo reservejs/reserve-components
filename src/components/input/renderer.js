@@ -1,6 +1,6 @@
-function create(React, actions) {
+function create({dependencies: {React, actions: {setValue}}}) {
   function onChange(data) {
-    actions.setValue(data)
+    setValue(data)
   }
 
   function render({state}) {

@@ -1,6 +1,6 @@
 {
   "name": "reserve-components",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "description": "The building-blocks for ReServe.",
   "scripts": {
     "test": "ava",
