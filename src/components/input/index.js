@@ -1,3 +1,4 @@
+import Immutable from 'immutable'
 import React from 'react'
 import Rx from 'rxjs'
 import interactionsFactory from './interactions'
@@ -10,7 +11,7 @@ function create({rendererFactory}) {
     React, actions: interactions.actions
   })
   const state = stateFactory.create({
-    Rx, events: interactions.events
+    Immutable, events: interactions.events
   })
   return {
     interactions,

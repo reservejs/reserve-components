@@ -1,8 +1,8 @@
 function create({Rx}) {
-  const setValue$ = new Rx.Subject()
-
+  const setValueSubject = new Rx.Subject()
+  const setValue$ = setValueSubject.asObservable()
   function setValue(data) {
-    setValue$.next(data)
+    setValueSubject.next(data)
   }
 
   return {

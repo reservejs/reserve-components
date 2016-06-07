@@ -1,8 +1,8 @@
-function create({dependencies: {Rx, inputInteractions}}) {
-  const write$ = new Rx.Subject()
-
+function create({Rx, inputInteractions}) {
+  const writeSubject = new Rx.Subject()
+  const write$ = writeSubject.asObservable()
   function write() {
-    write$.next()
+    writeSubject.next()
   }
 
   return {

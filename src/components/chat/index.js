@@ -5,7 +5,7 @@ import interactionsFactory from './interactions'
 import reactRendererFactory from './renderer'
 import stateFactory from './state'
 
-function create({options: {rendererFactory}}) {
+function create({rendererFactory}) {
   const input = inputFactory.create()
   const interactions = interactionsFactory.create()
   const state = stateFactory.create(Rx, interactions.events, input.state)

@@ -1,21 +1,19 @@
-function create({Rx, events: {setValue$}}) {
-  const stateSubject = new Rx.Subject()
-  const initialState = {
+function create({Immutable, events: {setValue$}}) {
+  // const stateSubject = new Rx.Subject()
+  const initialState = Immutable.Map({
     value: ''
-  }
+  })
 
-  setValue$.subscribe(function onSetValue$(data) {
-    stateSubject.next(function onStateChange(state) {
-      state.value = data
-      return state
+  const state$ = setValue$
+    .map(function onSetValue$(data) {
+      return function onHandleStateChange(state) {
+        return state.set('value', data)
+      }
+    }).startWith(initialState)
+    .scan(function onScan(currentState, stateChanger) {
+      return stateChanger(currentState)
     })
-  })
 
-  const state$ = stateSubject
-  .startWith(initialState)
-  .scan(function onScan(currentState, stateChanger) {
-    return stateChanger(currentState)
-  })
   return {
     state$
   }

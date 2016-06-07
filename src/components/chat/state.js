@@ -1,4 +1,4 @@
-function create({dependencies: {Rx, events, inputState}}) {
+function create({Rx, events, inputState}) {
   const messageStateSubject = new Rx.Subject()
   const initialState = []
 
