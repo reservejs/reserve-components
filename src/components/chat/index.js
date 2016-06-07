@@ -6,7 +6,9 @@ import reactRendererFactory from './renderer'
 import stateFactory from './state'
 
 function create({rendererFactory}) {
-  const input = inputFactory.create()
+  const input = inputFactory.create(
+    {rendererFactory: inputFactory.reactRendererFactory}
+  )
   const interactions = interactionsFactory.create()
   const state = stateFactory.create(Rx, interactions.events, input.state)
   const renderer = rendererFactory.create(
