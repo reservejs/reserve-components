@@ -1,4 +1,4 @@
-function create({dependencies: {Rx}}) {
+function create({Rx}) {
   const setValue$ = new Rx.Subject()
 
   function setValue(data) {

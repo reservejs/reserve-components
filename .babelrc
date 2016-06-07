@@ -3,9 +3,5 @@
     "es2015",
     "react"
   ],
-  "env": {
-    "development": {
-      "sourceMaps": "inline"
-    }
-  }
+  "sourceMaps": "inline"
 }

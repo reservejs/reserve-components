@@ -1,4 +1,4 @@
-function create({dependencies: {Rx, events: {setValue$}}}) {
+function create({Rx, events: {setValue$}}) {
   const stateSubject = new Rx.Subject()
   const initialState = {
     value: ''

@@ -30,7 +30,9 @@
     "require": [
       "babel-register"
     ],
-    "babel": "inherit",
+    "babel": {
+      "babelrc": true
+    },
     "source": "src/**/*.js",
     "failFast": true,
     "files": "src/**/*.test.js"

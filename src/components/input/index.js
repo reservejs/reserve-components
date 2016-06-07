@@ -4,13 +4,13 @@ import interactionsFactory from './interactions'
 import reactRendererFactory from './renderer'
 import stateFactory from './state'
 
-function create({options: {rendererFactory}}) {
-  const interactions = interactionsFactory.create({dependencies: {Rx}})
+function create({rendererFactory}) {
+  const interactions = interactionsFactory.create({Rx})
   const renderer = rendererFactory.create({
-    dependencies: {React, actions: interactions.actions}
+    React, actions: interactions.actions
   })
   const state = stateFactory.create({
-    dependencies: {Rx, events: interactions.events}
+    Rx, events: interactions.events
   })
   return {
     interactions,

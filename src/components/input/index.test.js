@@ -1,11 +1,19 @@
 import inputFactory from './index'
 import tests from 'ava'
 
-tests('input index', function onTestIndex(test) {
+tests(
+  'inputFactory.reactRendererFactory',
+  function onTestReactRendererFactory(test) {
+    const expectedType = 'object'
+    const actualType = typeof inputFactory.reactRendererFactory
+    test.is(actualType, expectedType)
+  }
+)
+
+tests('inputFactory.create', function onTestInputFactoryCreate(test) {
   const expected = 'object'
-  // TODO: new test; test.is(typeof inputFactory.reactRendererFactory, expected)
   const input = inputFactory.create({
-    options: inputFactory.reactRendererFactory
+    rendererFactory: inputFactory.reactRendererFactory
   })
   const actual = typeof input.interactions
   test.is(actual, expected)

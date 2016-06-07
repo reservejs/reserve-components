@@ -1,4 +1,4 @@
-function create({dependencies: {React, actions: {setValue}}}) {
+function create({React, actions: {setValue}}) {
   function onChange(data) {
     setValue(data)
   }

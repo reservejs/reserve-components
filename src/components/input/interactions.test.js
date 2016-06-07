@@ -6,9 +6,9 @@ const FIRST = 1
 
 tests('input.interactions setValue', function name(test) {
   const expected = 'hello'
-  const interactions = interactionsFactory.create({
-    dependencies: {Rx}
-  })
+  const interactions = interactionsFactory.create(
+    {Rx}
+  )
   const subscription = interactions.events.setValue$
   .take(FIRST).subscribe(
     function onSubscribe(actual) {
