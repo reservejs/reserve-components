@@ -6,6 +6,7 @@ import chatFactory from './chat'
 import connectionFactory from './connection'
 import inputFactory from './input'
 import tests from 'ava'
+import Rx from 'rxjs'
 
 const types = {
   function: 'function',
@@ -46,8 +47,8 @@ tests('events type', function onTest(test) {
       })
       Object.keys(events)
         .forEach(function onMapParentObjectKeys(key) {
-          const actual = typeof events[key][properties.observable]
-          const expected = types.function
+          const actual = events[key] instanceof Rx.Observable
+          const expected = true
           test.is(actual, expected)
         })
     }
