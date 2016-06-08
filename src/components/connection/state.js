@@ -1,4 +1,4 @@
-function create(Rx, events) {
+function create({Rx, events}) {
   const stateSubject = new Rx.Subject()
   const initialState = {
     isConnected: false

@@ -9,11 +9,15 @@ function create({rendererFactory}) {
   const input = inputFactory.create(
     {rendererFactory: inputFactory.reactRendererFactory}
   )
-  const interactions = interactionsFactory.create()
-  const state = stateFactory.create(Rx, interactions.events, input.state)
-  const renderer = rendererFactory.create(
-    React, interactions.actions, input.renderer
-  )
+  const interactions = interactionsFactory.create({
+    Rx, inputInteractions: input.interactions
+  })
+  const state = stateFactory.create({
+    Rx, events: interactions.events, inputState: input.state
+  })
+  const renderer = rendererFactory.create({
+    React, actions: interactions.actions, inputRenderer: input.renderer
+  })
   return {
     interactions,
     state,
