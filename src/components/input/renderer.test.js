@@ -1,3 +1,4 @@
+// TODO: Move to assert-types.test.js . -MANI
 import React from 'react'
 import rendererFactory from './renderer'
 import tests from 'ava'

@@ -1,6 +1,6 @@
 import raven from 'raven'
 
-function create(ravenConnectionString) {
+function create({ravenConnectionString}) {
   const client = new raven.Client(ravenConnectionString);
   // TODO: Make an unpatcher wrapped in a return destroy function. -MANI
   client.patchGlobal();

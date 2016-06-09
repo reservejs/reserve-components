@@ -2,25 +2,22 @@
   Makes sure each component has the correct API surface
 */
 
+import Rx from 'rxjs'
 import chatFactory from './chat'
 import connectionFactory from './connection'
 import inputFactory from './input'
+import logFactory from './log'
 import tests from 'ava'
-import Rx from 'rxjs'
 
 const types = {
-  function: 'function',
-  object: 'Object'
-}
-
-const properties = {
-  observable: 'subscribe'
+  function: 'function'
 }
 
 const componentFactories = [
   inputFactory,
   chatFactory,
-  connectionFactory
+  connectionFactory,
+  logFactory
 ]
 
 tests('actions type', function onTest(test) {
@@ -54,4 +51,3 @@ tests('events type', function onTest(test) {
     }
   )
 })
-

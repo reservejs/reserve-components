@@ -1,5 +1,4 @@
 function create({Immutable, events: {setValue$}}) {
-  // const stateSubject = new Rx.Subject()
   const initialState = Immutable.Map({
     value: ''
   })

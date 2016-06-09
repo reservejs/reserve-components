@@ -1,17 +1,17 @@
 /*
-Hands the message back to the callback instead of putting it in a stream.
+Convenient helper that hands the message back to the callback.
 */
-function create(callBack) {
+function create({callback}) {
   function info(data) {
-    callBack(data)
+    callback(data)
   }
 
   function warning(data) {
-    callBack(data)
+    callback(data)
   }
 
   function error(data) {
-    callBack(data)
+    callback(data)
   }
 
   return {
