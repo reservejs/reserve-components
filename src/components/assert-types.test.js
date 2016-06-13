@@ -7,6 +7,7 @@ import chatFactory from './chat'
 import connectionFactory from './connection'
 import inputFactory from './input'
 import logFactory from './log'
+import stateTraveler from './state-traveler'
 import tests from 'ava'
 
 const types = {
@@ -17,7 +18,8 @@ const componentFactories = [
   inputFactory,
   chatFactory,
   connectionFactory,
-  logFactory
+  logFactory,
+  stateTraveler
 ]
 
 tests('actions type', function onTest(test) {
